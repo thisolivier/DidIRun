@@ -8,19 +8,27 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Favagana")
+            ZStack {
+                Circle()
+                    .stroke()
+                    .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+                Text("Press & Hold to Start")
+            }
+            Text("Your Runs")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 
             HStack {
                 Text("Cala Rossa")
-                    .font(.subheadline)
                 Spacer()
-                Text("Home")
-                    .font(.subheadline)
+                Text("Homererer")
+                Spacer()
+                Text("Third option")
+                Spacer()
+                Text("Fouth really long option that will break things")
             }
         }
         .padding([.top, .leading, .trailing], 15.0)
@@ -29,6 +37,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

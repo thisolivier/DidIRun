@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Route" representedClassName="Route" syncable="YES" codeGenerationType="class">
+        <attribute name="path" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="Run" representedClassName="Run" syncable="YES" codeGenerationType="class">
+        <attribute name="distanceKm" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="routeTaken" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Route"/>
+    </entity>
+    <elements>
+        <element name="Run" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Route" positionX="-171.84375" positionY="207.1796875" width="128" height="58"/>
+    </elements>
 </model>
