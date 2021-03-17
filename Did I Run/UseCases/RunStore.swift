@@ -9,7 +9,20 @@
 import Foundation
 
 protocol RunStoring {
-    var currentRuns: Published<[String]>.Publisher { get }
+    var currentRunsPublisher: Published<[String]>.Publisher { get }
     
     func saveRun(_: String)
+}
+
+class RunStore: RunStoring {
+    var currentRunsPublisher: Published<[String]>.Publisher { $currentRuns }
+    @Published private var currentRuns: [String]
+    
+    init () {
+        currentRuns = ["Run 1", "Jog through Fog"]
+    }
+    
+    func saveRun(_ newRun: String) {
+        currentRuns.append(newRun)
+    }
 }

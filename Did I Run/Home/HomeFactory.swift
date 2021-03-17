@@ -10,6 +10,6 @@ import Foundation
 
 struct HomeFactory {
     func makeHomeView(with runStore: RunStoring) -> HomeView {
-        return HomeView
+        return HomeView()
     }
 }

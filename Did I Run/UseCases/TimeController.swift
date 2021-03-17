@@ -17,7 +17,7 @@ protocol TimeControlling {
 
 class TimeController: TimeControlling {
     
-    var startedPublisher: Published<Bool>.Publisher
+    var startedPublisher: Published<Bool>.Publisher { $started }
     var timeElapsed: TimeInterval { self.getTimeElapsed() }
     
     private var startTime: Date?
@@ -25,7 +25,6 @@ class TimeController: TimeControlling {
     
     init() {
         self.started = false
-        self.startedPublisher = $started
     }
     
     func start() {
