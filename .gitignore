@@ -4,6 +4,10 @@
 
 # Xcode
 
+## Preview generated
+
+Preview*Content/
+
 ## Build generated
 build/
 DerivedData/
