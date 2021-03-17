@@ -12,23 +12,27 @@ import SwiftUI
 
 protocol HomePresentable {
     
-    var homeView: HomeView { get }
     var buttonPercentCompletePublisher: Published<Int>.Publisher { get }
     var previousRuns: [String] { get }
+    
+    func setView(homeView: HomeView)
     
 }
 
 class HomePresenter: HomePresentable {
     
-    var homeView: HomeView
+    private var homeView: HomeView?
     var buttonPercentCompletePublisher: Published<Int>.Publisher { $buttonPercentComplete }
     var previousRuns: [String]
     
     @Published private var buttonPercentComplete: Int
     
-    init(view: HomeView) {
-        self.homeView = view
+    init() {
         self.buttonPercentComplete = 0
         self.previousRuns = []
+    }
+    
+    func setView(homeView: HomeView) {
+        self.homeView = homeView
     }
 }

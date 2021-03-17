@@ -16,9 +16,11 @@ protocol HomeInteractorable {
 class HomeInteractor: HomeInteractorable {
     
     var presenter: HomePresentable
+    let runStore: RunStore
     
-    init(presenter: HomePresentable) {
+    init(presenter: HomePresentable, runStore: RunStore) {
         self.presenter = presenter
+        self.runStore = runStore
     }
     
     func didStartButtonPress() {

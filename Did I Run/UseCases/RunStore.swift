@@ -8,13 +8,15 @@
 
 import Foundation
 
-protocol RunStoring {
-    var currentRunsPublisher: Published<[String]>.Publisher { get }
-    
-    func saveRun(_: String)
-}
+// Protocolising this is getting tricky with the ObservableObject constraint,
+// The current limitations on (variadic) generics means I have no idea short of creating an AnyRunStore or generic high level service wrapper how to make the compiler happy. And that *really* seems like overkill.
+//protocol RunStoring: ObservableObject {
+//    var currentRunsPublisher: Published<[String]>.Publisher { get }
+//
+//    func saveRun(_: String)
+//}
 
-class RunStore: RunStoring {
+class RunStore: ObservableObject {
     var currentRunsPublisher: Published<[String]>.Publisher { $currentRuns }
     @Published private var currentRuns: [String]
     

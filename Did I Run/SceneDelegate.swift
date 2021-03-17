@@ -12,24 +12,28 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var runStore: RunStore?
 
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions
     ) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
-        // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = HomeFactory()
-            .makeHomeView(with: RunStore())
-            .environment(\.managedObjectContext, context)
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
-            self.window = window
-            window.makeKeyAndVisible()
+        guard
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+            let windowScene = scene as? UIWindowScene
+        else {
+            return
         }
+        let runStore = RunStore()
+        let homeView = HomeFactory(dataContainer: appDelegate.persistentContainer,
+                                   runStore: runStore)
+            .makeHomeView()
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = UIHostingController(rootView: homeView)
+        self.window = window
+        self.runStore = runStore
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

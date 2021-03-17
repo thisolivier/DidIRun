@@ -9,13 +9,24 @@
 import SwiftUI
 
 struct HomeView: View {
+    let interactor: HomeInteractorable?
+    @State var persentageFull: Int
+    @State var previousRuns: [String]
+    
     var body: some View {
+        let runButtonGesture = DragGesture(minimumDistance: 0)
+            .onChanged({ _ in interactor?.didStartButtonPress() })
+            .onEnded({ _ in interactor?.didStopButtonPress() })
+        
         VStack(alignment: .leading) {
             ZStack {
                 Circle()
                     .stroke()
-                    .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                Text("Press & Hold to Start")
+                    .frame(width: 100.0, height: 100.0)
+                    .gesture(
+                        runButtonGesture
+                    )
+                Text("Press and Hold to Start A Run")
             }
             Text("Your Runs")
                 .font(.largeTitle)
@@ -37,6 +48,6 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(interactor: nil, persentageFull: 100, previousRuns: ["Run One", "Run Two"])
     }
 }
