@@ -26,7 +26,7 @@ struct HomeView: View {
                             runButtonGesture
                         )
                     Rectangle()
-                            .fill(Color.pink)
+                        .fill(Color.black)
                         .frame(maxHeight: CGFloat(presenter.viewState.percentageComplete)/100 * metrics.size.width)
                         .clipShape(Circle())
                         .animation(.easeInOut)
