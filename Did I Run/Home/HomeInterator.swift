@@ -15,19 +15,22 @@ protocol HomeInteractorable {
 
 class HomeInteractor: HomeInteractorable {
     
-    var presenter: HomePresentable
+    var presenter: HomePresenter
     let runStore: RunStore
     
-    init(presenter: HomePresentable, runStore: RunStore) {
+    init(presenter: HomePresenter, runStore: RunStore) {
         self.presenter = presenter
         self.runStore = runStore
     }
     
     func didStartButtonPress() {
         print("We should replace these with publishable things")
+        presenter.startButtonIncrimenting()
+        
     }
     
     func didStopButtonPress() {
         print("They should be hooked up in an Rx-ee fashion")
+        presenter.resetButtonIncrimenting()
     }
 }

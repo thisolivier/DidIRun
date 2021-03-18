@@ -18,8 +18,7 @@ struct HomeFactory {
 //            .environmentObject(runStore)
         let presenter = HomePresenter()
         let interactor = HomeInteractor(presenter: presenter, runStore: runStore)
-        let homeView = HomeView(interactor: interactor, persentageFull: 0, previousRuns: [])
-        presenter.setView(homeView: homeView) // this won't work, home view is a struct... You might be able to pass in a view model state object though.
+        let homeView = HomeView(interactor: interactor, presenter: presenter)
         return homeView.environment(\.managedObjectContext, context)
     }
 }
