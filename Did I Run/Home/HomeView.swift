@@ -14,8 +14,10 @@ struct HomeView: View {
     
     var body: some View {
         let runButtonGesture = DragGesture(minimumDistance: 0)
-            .onChanged({ _ in interactor?.didStartButtonPress() })
-            .onEnded({ _ in interactor?.didStopButtonPress() })
+            .onChanged({ _ in interactor?.didStartButtonPress()
+            })
+            .onEnded({ _ in interactor?.didStopButtonPress()
+            })
         GeometryReader { metrics in
             VStack(alignment: .leading) {
                 ZStack {
@@ -30,7 +32,7 @@ struct HomeView: View {
                         .frame(maxHeight: CGFloat(presenter.viewState.percentageComplete)/100 * metrics.size.width)
                         .clipShape(Circle())
                         .animation(.easeInOut)
-                    Text("Press and Hold to Start A Run")
+                    Text(NSLocalizedString("Press and Hold to Start A Run", comment: ""))
                         .background(Color.white)
                         .font(.title)
                         .multilineTextAlignment(.center)
@@ -43,7 +45,7 @@ struct HomeView: View {
                     idealHeight: metrics.size.width,
                     maxHeight: metrics.size.width,
                     alignment: .leading)
-                Text("Your Runs")
+                Text(NSLocalizedString("Your Runs", comment: ""))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 

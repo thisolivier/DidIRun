@@ -25,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else {
             return
         }
+        
         let runStore = RunStore()
         let homeView = HomeFactory(dataContainer: appDelegate.persistentContainer,
                                    runStore: runStore)

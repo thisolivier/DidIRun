@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Did I Run
+
+  Created by Olivier Butler on 21/03/2021.
+  Copyright © 2021 Olivier Butler. All rights reserved.
+*/
+
+"Test" = "Test Result";
+"Press and Hold to Start A Run" = "Press and Hold to Start A Run";
+"Your Runs" = "Your Runs";
