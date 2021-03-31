@@ -7,6 +7,11 @@
 //
 
 import SwiftUI
+import Combine
+
+enum LongPressButtonAction {
+    case startPress, endPress
+}
 
 struct HomeView: View {
     let interactor: HomeInteractorable?
@@ -37,6 +42,7 @@ struct HomeView: View {
                         .font(.title)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
+                        .allowsHitTesting(false)
                 }.frame(
                     minWidth: 0,
                     idealWidth: metrics.size.width,
@@ -49,6 +55,15 @@ struct HomeView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
+                HStack {
+                    Text("Cala Rossa")
+                    Spacer()
+                    Text("Homererer")
+                    Spacer()
+                    Text("Third option")
+                    Spacer()
+                    Text("Fouth really long option that will break things")
+                }
                 HStack {
                     Text("Cala Rossa")
                     Spacer()

@@ -20,18 +20,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+//            let appDelegate = UIApplication.shared.delegate as? AppDelegate,
             let windowScene = scene as? UIWindowScene
         else {
             return
         }
         
         let runStore = RunStore()
-        let homeView = HomeFactory(dataContainer: appDelegate.persistentContainer,
-                                   runStore: runStore)
-            .makeHomeView()
+        guard let homeView = HomeFactory(
+                runStore: runStore)
+                .makeHomeView() else {
+            return
+        }
+        let coordinatorView = CoordinatorView(homeView: homeView)
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UIHostingController(rootView: homeView)
+        window.rootViewController = UIHostingController(rootView: coordinatorView)
         self.window = window
         self.runStore = runStore
         window.makeKeyAndVisible()

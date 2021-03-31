@@ -10,15 +10,12 @@ import SwiftUI
 import CoreData
 
 struct HomeFactory {
-    let dataContainer: NSPersistentContainer
     let runStore: RunStore
     
-    func makeHomeView() -> some View {
-        let context = dataContainer.viewContext
-//            .environmentObject(runStore)
+    func makeHomeView() -> HomeView? {
         let presenter = HomePresenter()
         let interactor = HomeInteractor(presenter: presenter, runStore: runStore)
         let homeView = HomeView(interactor: interactor, presenter: presenter)
-        return homeView.environment(\.managedObjectContext, context)
+        return homeView
     }
 }

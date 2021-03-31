@@ -17,11 +17,13 @@
 		095F840B24C037770091342D /* Did_I_RunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F840A24C037770091342D /* Did_I_RunTests.swift */; };
 		095F841624C037770091342D /* Did_I_RunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F841524C037770091342D /* Did_I_RunUITests.swift */; };
 		0962ED52260176EA0069E09B /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962ED51260176EA0069E09B /* TimeController.swift */; };
-		0962ED57260179D20069E09B /* HomeInterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962ED56260179D20069E09B /* HomeInterator.swift */; };
+		0962ED57260179D20069E09B /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962ED56260179D20069E09B /* HomeInteractor.swift */; };
 		0962ED6526017B260069E09B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962ED6426017B260069E09B /* HomePresenter.swift */; };
 		0962ED6A26017B430069E09B /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962ED6926017B430069E09B /* HomeFactory.swift */; };
 		0962ED7726017C390069E09B /* RunStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962ED7626017C390069E09B /* RunStore.swift */; };
 		0962ED912606DF680069E09B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0962ED932606DF680069E09B /* Localizable.strings */; };
+		09F8BA412614F06100D5A73E /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8BA402614F06100D5A73E /* CoordinatorView.swift */; };
+		09F8BA492614F2AA00D5A73E /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8BA482614F2AA00D5A73E /* CoordinatorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +60,13 @@
 		095F841524C037770091342D /* Did_I_RunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Did_I_RunUITests.swift; sourceTree = "<group>"; };
 		095F841724C037770091342D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0962ED51260176EA0069E09B /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
-		0962ED56260179D20069E09B /* HomeInterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterator.swift; sourceTree = "<group>"; };
+		0962ED56260179D20069E09B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		0962ED6426017B260069E09B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		0962ED6926017B430069E09B /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
 		0962ED7626017C390069E09B /* RunStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStore.swift; sourceTree = "<group>"; };
 		0962ED922606DF680069E09B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		09F8BA402614F06100D5A73E /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		09F8BA482614F2AA00D5A73E /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				095F83F024C037740091342D /* AppDelegate.swift */,
 				095F83F224C037740091342D /* SceneDelegate.swift */,
 				0962ED7226017BE40069E09B /* UseCases */,
+				09F8BA3F2614F03E00D5A73E /* Coodinator */,
 				0962ED6E26017B4C0069E09B /* Home */,
 				095F83F924C037770091342D /* Assets.xcassets */,
 				095F83FE24C037770091342D /* LaunchScreen.storyboard */,
@@ -157,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0962ED6926017B430069E09B /* HomeFactory.swift */,
-				0962ED56260179D20069E09B /* HomeInterator.swift */,
+				0962ED56260179D20069E09B /* HomeInteractor.swift */,
 				0962ED6426017B260069E09B /* HomePresenter.swift */,
 				095F83F724C037740091342D /* HomeView.swift */,
 			);
@@ -171,6 +176,15 @@
 				0962ED7626017C390069E09B /* RunStore.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		09F8BA3F2614F03E00D5A73E /* Coodinator */ = {
+			isa = PBXGroup;
+			children = (
+				09F8BA402614F06100D5A73E /* CoordinatorView.swift */,
+				09F8BA482614F2AA00D5A73E /* CoordinatorFactory.swift */,
+			);
+			path = Coodinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,13 +320,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0962ED6526017B260069E09B /* HomePresenter.swift in Sources */,
+				09F8BA412614F06100D5A73E /* CoordinatorView.swift in Sources */,
 				0962ED52260176EA0069E09B /* TimeController.swift in Sources */,
 				095F83F124C037740091342D /* AppDelegate.swift in Sources */,
 				095F83F324C037740091342D /* SceneDelegate.swift in Sources */,
 				095F83F824C037740091342D /* HomeView.swift in Sources */,
 				0962ED7726017C390069E09B /* RunStore.swift in Sources */,
 				0962ED6A26017B430069E09B /* HomeFactory.swift in Sources */,
-				0962ED57260179D20069E09B /* HomeInterator.swift in Sources */,
+				0962ED57260179D20069E09B /* HomeInteractor.swift in Sources */,
+				09F8BA492614F2AA00D5A73E /* CoordinatorFactory.swift in Sources */,
 				095F83F624C037740091342D /* Did_I_Run.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
